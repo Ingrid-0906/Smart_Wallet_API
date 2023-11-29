@@ -5,11 +5,13 @@ API que disponibiliza uma otimização da carteira baseado nas classes e seus at
 
 ## @app.route('/carteira', methods=['POST'])
 Formato da resposta: JSON
+
 Requerimento ou não de autenticação: Falso
+
 Limitação de uso: 1 call
 
 Parametros:
-{
+
     id: int(),
     perfil: str(),
     historico: {
@@ -19,21 +21,27 @@ Parametros:
         * pl_total_mes_atual: dict( index(), float() ) -> posicao geral da carteira no mes
         * data_posicao: dict( index(), datetime() )
     }
-}
+    
 
 Descrição dos possíveis retornos:
+
 Se for bem sucedida o retorno será {"success": true} e assim poderá fazer todos os gets necessários
 Se não for como esperado {"success": false}, e muito provável seja os parametros serem incorretos ou multiplas chamadas feitas.
 
+
 ## @app.route('/statswallet', methods=['GET'])
 Formato da resposta: JSON
+
 Requerimento ou não de autenticação: Falso
+
 Limitação de uso: 1 call por carteira
 
 Parametros:
+
 Sem parametros
 
 Descrição dos possíveis retornos:
+
 {
   "faixa_hj": [
     {
@@ -78,13 +86,17 @@ Se não for como esperado {"success": false}, e muito provável seja os parametr
 
 ## @app.route('/getwallet', methods=['GET'])
 Formato da resposta: JSON
+
 Requerimento ou não de autenticação: Falso
+
 Limitação de uso: 1 call por carteira
 
 Parametros:
+
 Sem parametros
 
 Descrição dos possíveis retornos:
+
 {
   "band_hoje": [
     {
@@ -131,13 +143,17 @@ Se não for como esperado {"success": false}, e muito provável seja os parametr
 
 ## @app.route('/getativo', methods=['GET'])
 Formato da resposta: JSON
+
 Requerimento ou não de autenticação: Falso
+
 Limitação de uso: 1 call por carteira
 
 Parametros:
+
 Sem parametros
 
 Descrição dos possíveis retornos:
+
 {
   "data": [
     {
@@ -238,18 +254,24 @@ Descrição dos possíveis retornos:
 
 ## @app.route('/getranger', methods=['POST'])
 Formato da resposta: JSON
+
 Requerimento ou não de autenticação: Falso
+
 Limitação de uso: 1 call por carteira
-Observação: Preisa que seja feita uma call inicial para '/carteira' antes de fazer o post aqui.
+
+<b>Observação: Precisa que seja feita uma call anterior para '/carteira' antes de fazer o post aqui.</b>
 
 Parametros:
-{
+
+
     classe: str(): {
         peso: int(),
         min: int(),
         max: int()
     }
-}
+
+
+Descrição dos possíveis retornos:
 
 {
   "ativos": {
