@@ -1,5 +1,5 @@
 # Smart_Wallet_API
-Repo qu contém os primeiros códigos da API do sistema smart wallet
+Repo que contém os primeiros códigos da API do sistema smart wallet
 
 API que disponibiliza uma otimização da carteira baseado nas classes e seus ativos
 
